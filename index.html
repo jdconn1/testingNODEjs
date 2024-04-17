@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <script src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+    <div class="container">
+        <p>hello</p>
+    </div>
+    <script>
+        let response = axios.get("https://dog.ceo/api/breeds/image/random")
+        response.then((response) => {
+            let img = document.createElement('img');
+            let parentDiv = document.querySelector('.container');
+            img.src = response.data.message;
+            parentDiv.appendChild(img);
+            console.log(response);
+        })
+        .catch((err) =>{
+            console.log(err);
+        })
+    </script>
+</body>
+</html>
